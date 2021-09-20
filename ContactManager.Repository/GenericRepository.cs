@@ -1,23 +1,26 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Linq;
-using ContactManager.Data;
+﻿using ContactManager.Data;
+using ContactManager.Model;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using X.PagedList;
+using ContactManager.Common;
 
 namespace ContactManager.Repository
 {
-
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly ContactDbContext _context;
         private readonly DbSet<T> _db;
-        public GenericRepository( ContactDbContext context)
+
+        public GenericRepository(ContactDbContext context)
         {
             _context = context;
             _db = _context.Set<T>();
         }
+
         public async Task Delete(string Id)
         {
             var entity = await _db.FindAsync(Id);
@@ -29,10 +32,10 @@ namespace ContactManager.Repository
             _db.RemoveRange(entities);
         }
 
-        public async Task<T> Get(System.Linq.Expressions.Expression<System.Func<T, bool>> expression, List<string> includes = null)
+        public async Task<T> Get(Expression<System.Func<T, bool>> expression, List<string> includes = null)
         {
             IQueryable<T> query = _db;
-            if (includes!=null)
+            if (includes != null)
             {
                 foreach (var property in includes)
                 {
@@ -45,7 +48,7 @@ namespace ContactManager.Repository
         public async Task<IList<T>> GetAll(System.Linq.Expressions.Expression<System.Func<T, bool>> expression = null, System.Func<System.Linq.IQueryable<T>, System.Linq.IOrderedQueryable<T>> orderBy = null, List<string> includes = null)
         {
             IQueryable<T> query = _db;
-            if (expression!=null)
+            if (expression != null)
             {
                 query = query.Where(expression);
             }
@@ -56,11 +59,26 @@ namespace ContactManager.Repository
                     query = query.Include(property);
                 }
             }
-            if (orderBy!=null)
+            if (orderBy != null)
             {
                 query = orderBy(query);
             }
             return await query.AsNoTracking().ToListAsync();
+        }
+
+        public async Task<IPagedList<T>> GetPagedList(PaginationParams paginationParams, List<string> includes = null)
+        {
+            IQueryable<T> query = _db;
+
+            if (paginationParams != null && includes!=null)
+            {
+                foreach (var property in includes)
+                {
+                    query = query.Include(property);
+                }
+            }
+
+            return await query.AsNoTracking().ToPagedListAsync(paginationParams.PageNumber, paginationParams.PageSize);
         }
 
         public async Task Insert(T entity)
@@ -78,7 +96,5 @@ namespace ContactManager.Repository
             _db.Attach(entity);
             _context.Entry(entity).State = EntityState.Modified;
         }
-
-     
     }
 }

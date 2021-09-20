@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.10">
       <PrivateAssets>all</PrivateAssets>
@@ -27,6 +28,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ContactManager.Common\ContactManager.Common.csproj" />
     <ProjectReference Include="..\ContactManager.Data\ContactManager.Data.csproj" />
     <ProjectReference Include="..\ContactManager.Model\ContactManager.Model.csproj" />
     <ProjectReference Include="..\ContactManager.Repository\ContactManager.Repository.csproj" />

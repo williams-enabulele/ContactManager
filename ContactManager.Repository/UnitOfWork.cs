@@ -1,9 +1,6 @@
 ﻿using ContactManager.Data;
 using ContactManager.Model;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ContactManager.Repository
@@ -17,6 +14,7 @@ namespace ContactManager.Repository
         {
             _context = context;
         }
+
         public IGenericRepository<User> Users => _users ??= new GenericRepository<User>(_context);
 
         public void Dispose()

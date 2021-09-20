@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ContactManager.Data.Migrations;
 using ContactManager.Model;
 using ContactManager.Model.DTOs;
 using System;
@@ -13,6 +14,7 @@ namespace ContactManager.API
         public MapperInit()
         {
             CreateMap<User, UserDTO>().ReverseMap();
+            CreateMap<User, AllUsersDTO>().ReverseMap();
         }
     }
 }

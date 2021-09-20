@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactManager.Model", "Con
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactManager.Services", "ContactManager.Services\ContactManager.Services.csproj", "{FA6A9C23-E8E2-4D7A-B335-8358D716DFCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactManager.API", "ContactManager.API\ContactManager.API.csproj", "{4E720CEF-E015-480F-ACAB-9BA69E6A91C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactManager.API", "ContactManager.API\ContactManager.API.csproj", "{4E720CEF-E015-480F-ACAB-9BA69E6A91C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactManager.Common", "ContactManager.Common\ContactManager.Common.csproj", "{1FD395CB-E09B-44EF-B186-6E354744EBB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{4E720CEF-E015-480F-ACAB-9BA69E6A91C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E720CEF-E015-480F-ACAB-9BA69E6A91C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E720CEF-E015-480F-ACAB-9BA69E6A91C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FD395CB-E09B-44EF-B186-6E354744EBB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FD395CB-E09B-44EF-B186-6E354744EBB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FD395CB-E09B-44EF-B186-6E354744EBB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FD395CB-E09B-44EF-B186-6E354744EBB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

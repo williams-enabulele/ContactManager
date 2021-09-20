@@ -1,5 +1,5 @@
-﻿using ContactManager.Model;
-using Microsoft.AspNetCore.Identity;
+﻿using ContactManager.API.Configurations;
+using ContactManager.Model;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,9 +11,10 @@ namespace ContactManager.Data
         {
         }
 
-        /*protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-        }*/
+            builder.ApplyConfiguration(new RoleConfiguration());
+        }
     }
 }

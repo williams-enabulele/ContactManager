@@ -6,14 +6,11 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.10" />
-    <PackageReference Include="X.PagedList.Mvc.Core" Version="8.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ContactManager.Data\ContactManager.Data.csproj" />
     <ProjectReference Include="..\ContactManager.Model\ContactManager.Model.csproj" />
-    <ProjectReference Include="..\ContactManager.Services\ContactManager.Services.csproj" />
   </ItemGroup>
 
 </Project>
